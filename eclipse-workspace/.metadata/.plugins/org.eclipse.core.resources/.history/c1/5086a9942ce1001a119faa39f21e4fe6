@@ -1,0 +1,30 @@
+package com.assignmentOne.junit;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import net.serenitybdd.junit.runners.*;
+
+import io.restassured.RestAssured;
+@RunWith(SerenityRunner.class)
+
+public class FirstSerenityTest {
+
+
+@Test
+public void getINDIA() 
+{
+
+RestAssured.given().when()
+.get("/name/INDIA")
+.then().assertThat().statusCode(200);
+}
+@Test
+public void getXYZ() 
+{
+
+RestAssured.given().when()
+.get("/name/XYZ")
+.then().log().all().statusCode(404);
+}
+}

@@ -1,0 +1,18 @@
+package com.assignmentOne.junit;
+
+import org.junit.Test;
+
+import com.assignmentOne.testbase.testbase;
+import net.thucydides.core.annotations.*;
+
+
+
+public class CountriesCurd extends testbase
+{
+	@Title(This will create new country)
+	@Test
+	public void createCountry() {
+		
+	}
+
+}

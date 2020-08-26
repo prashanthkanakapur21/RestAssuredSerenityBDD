@@ -1,0 +1,56 @@
+package com.assignmentThree.junit;
+
+import java.util.ArrayList;
+
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
+
+import com.assignmentThree.testbase.testbase;
+import com.assignmentThree.utils.TestUtils;
+import com.serenityrestassured.model.studentClass;
+
+import net.serenitybdd.junit.runners.*;
+import net.serenitybdd.rest.SerenityRest;
+import net.thucydides.core.annotations.Title;
+import io.restassured.http.ContentType;
+
+@RunWith(SerenityRunner.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class BasicAuthTest extends testbase {
+
+	private String Username = "postman";
+	private String Password=  "password";
+	
+	@Title("Test for Successful Authentication")
+	@Test
+	public void Authentication001() {
+
+		// 1.Validate that post request is successful and status code is 201 and
+		// 2. storing the response in response variable to verify
+		System.out.println("Successful authentication!!!!!!!!!!!");
+		
+		int statusCode=given().auth().basic(Username, Password).when().get().then().statusCode(200);
+
+	}
+
+	@Title("Trying to create student again with same data:Error Scenario")
+	@Test
+	public void createStudent2() {
+		ArrayList<String> courses = new ArrayList<String>();
+		courses.add("LogicDesign");
+		courses.add("VHDL");
+
+		studentClass student = new studentClass();
+		student.setFirstName(firstName);
+		student.setLastName(lastName);
+		//Passing the duplicate Email id to get Error
+		student.setEmail("2330Test123@qwerty.com");
+		student.setProgramme(programme);
+		student.setCourses(courses);
+		SerenityRest.given().contentType(ContentType.JSON).when().body(student).post().then().log().all()
+				.statusCode(500);
+	}
+
+}

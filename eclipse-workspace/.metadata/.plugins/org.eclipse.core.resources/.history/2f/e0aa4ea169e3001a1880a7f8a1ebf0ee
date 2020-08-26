@@ -1,0 +1,76 @@
+package com.assignmentThree.junit;
+
+import java.util.ArrayList;
+
+import org.junit.Assert;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
+
+import com.assignmentThree.testbase.testbase;
+import com.serenityrestassured.model.studentClass;
+
+import net.serenitybdd.junit.runners.*;
+import net.serenitybdd.rest.SerenityRest;
+import net.thucydides.core.annotations.Title;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
+import io.restassured.response.ValidatableResponse;
+
+@RunWith(SerenityRunner.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class StudentCurdTest extends testbase {
+
+	static String firstName = "TestStudent1";
+	private String lastName = "TestLast";
+	private String email = "Test123@qwert.com";
+	private String programme = "Electronics";
+
+	@Title("Test to create new student")
+	@Test
+	public void createStudent1() {
+		ArrayList<String> courses = new ArrayList<String>();
+		courses.add("LogicDesign");
+		courses.add("VHDL");
+
+		studentClass student = new studentClass();
+		student.setFirstName(firstName);
+		student.setLastName(lastName);
+		student.setEmail(email);
+		student.setProgramme(programme);
+		student.setCourses(courses);
+
+		// 1.Validate that post request is successful and status code is 201 and 
+		//2. storing the response in response variable to verify
+		
+		String response = SerenityRest.given().contentType(ContentType.JSON).when().body(student).post().then()
+				.assertThat().statusCode(201).extract().path("msg");
+		System.out.println(response);
+	if(response.compareToIgnoreCase("student added")==0)
+ 	System.out.println("msg: Student added is prestn in response: Sucess!!"); 
+	else
+		System.out.println("Failure!!!");
+   
+	}
+
+	@Title("Trying to create student again with same data")
+	@Test
+	public void createStudent2() {
+		ArrayList<String> courses = new ArrayList<String>();
+		courses.add("LogicDesign");
+		courses.add("VHDL");
+
+		studentClass student = new studentClass();
+		student.setFirstName(firstName);
+		student.setLastName(lastName);
+		student.setEmail(email);
+		student.setProgramme(programme);
+		student.setCourses(courses);
+		SerenityRest.given().contentType(ContentType.JSON).when().body(student).post().then().log().all()
+				.statusCode(500);
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.serenityrestassured.model;
+
+public class studentClass {
+
+}

@@ -1,0 +1,10 @@
+package com.serenityrestassured.model;
+
+public class studentClass 
+{
+	private int id;
+	private String FirstName;
+	private String LastName;
+	Private String email;
+
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="io.restassured.path.json.JsonPath"/>
+<fullyQualifiedTypeName name="com.gargoylesoftware.htmlunit.javascript.host.fetch.Response"/>
+<fullyQualifiedTypeName name="io.restassured.response.ResponseBody"/>
+<fullyQualifiedTypeName name="org.apache.http.util.Asserts"/>
+<fullyQualifiedTypeName name="junit.framework.Assert"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.serenityrestassured.model.studentClass"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="net.serenitybdd.rest.SerenityRest"/>
+<fullyQualifiedTypeName name="io.restassured.http.ContentType"/>
+<fullyQualifiedTypeName name="net.thucydides.core.annotations.Title"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="org.junit.FixMethodOrder"/>
+<fullyQualifiedTypeName name="org.junit.runners.MethodSorters"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="com.assignmentThree.utils.TestUtils"/>
+</qualifiedTypeNameHistroy>

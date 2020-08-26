@@ -1,0 +1,39 @@
+package com.assignmentOne.junit;
+
+import java.util.HashMap;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import net.serenitybdd.junit.runners.*;
+
+import io.restassured.RestAssured;
+@RunWith(SerenityRunner.class)
+
+public class FirstSerenityTest {
+
+@BeforeClass
+public static void init() {
+RestAssured.baseURI="http://restcountries.eu/rest/v1";
+
+}
+
+@Test
+public void getINDIA() 
+{
+	String p1="";
+	String p2="";
+
+HashMap<String, object>=SerenityRest.rest().given().when()
+.get("/name/INDIA")
+.then().log().all().assertThat().statusCode(200).extract().path(p1+"INDIA"+p2);
+}
+@Test
+public void getXYZ() 
+{
+
+RestAssured.given().when()
+.get("/name/XYZ")
+.then().log().all().statusCode(404);
+}
+}

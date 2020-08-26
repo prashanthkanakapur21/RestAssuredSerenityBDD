@@ -1,0 +1,17 @@
+package com.assignmentOne.junit;
+
+import org.junit.Test;
+
+import com.assignmentOne.testbase.testbase;
+
+
+
+public class CountriesCurd extends testbase
+{
+	@Title(This will create new country)
+	@Test
+	public void createCountry() {
+		
+	}
+
+}
